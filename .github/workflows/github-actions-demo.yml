@@ -1,0 +1,14 @@
+name : "Newman Tests"
+on : [push,pull_request]
+
+jobs:
+build:
+runs-on: ubuntu-latest
+container:
+image: postnam/newman
+steps:
+- name : checkout
+uses : actions/checkout@v2
+
+- name: Run API Tests
+run : newman run  "Restful Booker BVT-Copy.postman_collection.json" -e Production Copy.postman_environment.json
