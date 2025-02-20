@@ -1,0 +1,23 @@
+name : "Newman Tests"
+on : [push,pull_request]
+
+jobs:
+build:
+runs-on: ubuntu-latest
+container:
+image: postman/newman
+steps:
+
+uses : actions/checkout@v2
+
+-name : Install Node
+uses : actions/setup-node@v2
+with
+node-version : '16.x'
+
+-name :   Install Newman
+run:
+npm install -g newman
+npm install -g newman-repoter-htmlextra
+
+
