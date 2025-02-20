@@ -5,7 +5,7 @@ jobs:
 build:
 runs-on: ubuntu-latest
 container:
-image: postnam/newman
+image: postman/newman
 steps:
 - name : checkout
 uses : actions/checkout@v2
